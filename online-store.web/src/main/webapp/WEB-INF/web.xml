@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>onlinestore</display-name>
+
+	<welcome-file-list>
+		<welcome-file>homepage</welcome-file>
+	</welcome-file-list>
+
+	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>test-auth</web-resource-name>
+			<url-pattern>/test-auth</url-pattern>
+			<http-method>GET</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>client</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+			<!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+
+	<session-config>
+		<session-timeout>15</session-timeout>
+	</session-config>
+
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error403</location>
+	</error-page>
+	<error-page>
+		<error-code>405</error-code>
+		<location>/error-handler</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/error-handler</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/not-found</location>
+	</error-page>
+	<!-- 
+	<jsp-config>
+	    <jsp-property-group>
+	        <url-pattern>/*</url-pattern>
+	        <page-encoding>UTF-8</page-encoding>
+	    </jsp-property-group>
+	</jsp-config> -->
+
+</web-app>
