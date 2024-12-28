@@ -9,7 +9,6 @@
 <html lang="en">
   
    <head>
-      <meta charset="UTF-8">
       <title>Nice Sofa - Online Store</title>
       
       <shop:css-imports-main/>

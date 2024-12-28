@@ -95,6 +95,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 		}
 		return privilege;
 	}
+	
 	@Transactional
 	private RoleDto createRoleIfNotFound(String name, List<PrivilegeDto> privileges) {
 		RoleDto role = roleRepository.getRoleByRoleName(name);

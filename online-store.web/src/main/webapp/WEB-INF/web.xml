@@ -5,7 +5,8 @@
 http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	<display-name>onlinestore</display-name>
-
+    <request-character-encoding>UTF-8</request-character-encoding>
+ 
 	<welcome-file-list>
 		<welcome-file>homepage</welcome-file>
 	</welcome-file-list>

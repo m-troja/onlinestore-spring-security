@@ -21,7 +21,7 @@
 				<h1>Oops!</h1>
 				<h2>403 - Permission error!</h2>
 			</div>
-			<a href="homepage">Go TO Homepage</a>
+			<a href="/online-store.web/homepage">Go TO Homepage</a>
 		</div>
 	</div>
 
