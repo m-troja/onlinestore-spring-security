@@ -1,5 +1,6 @@
 package com.itbulls.learnit.onlinestore.core.facades.impl;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,6 +41,7 @@ public class DefaultUserFacade implements UserFacade {
 		user.setPartnerCode(marketingService.generateUniquePartnerCode());
 		user.setReferrerUser(userConverter.convertUserDtoToUser(userDao.getUserByPartnerCode(referrerCode)));
 		user.setRoles(roleCnv.convertRoleDtosToRoles(Arrays.asList(roleDao.getRoleByRoleName(SetupDataLoader.ROLE_CUSTOMER))));
+		user.setMoney(0.00);
 		System.out.println();
 		if (user.getRoles() != null)
 		{
@@ -75,8 +77,8 @@ public class DefaultUserFacade implements UserFacade {
 
 
 	@Override
-	public void updateUser(User referrerUser) {
-		// TODO Auto-generated method stub
+	public void updateUser(User user) {
+		 userDao.updateUser(userConverter.convertUserToUserDto(user));
 		
 	}
 }

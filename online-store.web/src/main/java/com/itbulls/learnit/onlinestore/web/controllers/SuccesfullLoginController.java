@@ -14,8 +14,7 @@ public class SuccesfullLoginController {
 	@GetMapping
 	public String doGet(HttpSession session) 
 	{
-		session.setAttribute(SignInController.LOGGED_IN_USER_ATTR, session);
-		return "success-login";
+		return "redirect:/homepage";
 	}
 
  /* Not using with Spring Security

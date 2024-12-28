@@ -14,32 +14,7 @@
       
    </head>
    <body>
-      
-      <shop:header/>
-      <br>
       <h3>Admin site</h3>
-            <br> 
-      <br> 
-            <br> 
-      <br> 
-            <br> 
-      <br> 
-               <br> 
-      <br> 
-            <br> 
-      <br> 
-            <br> 
-      <br> 
-               <br> 
-      <br> 
-            <br> 
-      <br> 
-            <br> 
-      <br> 
-      
-      
-      <shop:footer/>
-      <shop:js-imports-main/>
-      
+ 
    </body>
 </html>

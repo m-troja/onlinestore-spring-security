@@ -133,14 +133,8 @@ public class WebConfig implements WebMvcConfigurer {
     	http.csrf()
 	        .disable()
 	        .authorizeHttpRequests()
-		        .requestMatchers("/test/admin/**")
+		        .requestMatchers("/admin/**", "/management*")
 		        .hasRole("ADMIN")
-		        .requestMatchers("/test/anonymous*")
-		        .anonymous()
-		        .requestMatchers("/signin")
-		        .permitAll()
- 		        .anyRequest()
- 		        .authenticated()
 	        .and()
 		        .formLogin()
     	        .usernameParameter("email")		
@@ -153,9 +147,13 @@ public class WebConfig implements WebMvcConfigurer {
 	        .and()
 		        .logout()
 		        .logoutUrl("/signout")
-		        .logoutSuccessUrl("/homepage")
+		        .logoutSuccessUrl("/")
 		        .deleteCookies("JSESSIONID")
-		        .logoutSuccessHandler(logoutSuccessHandler());
+	        .and()
+		     	.rememberMe()
+		     	.key("superSecretKey")
+		        .rememberMeParameter("remember") 
+		        .rememberMeCookieName("rememberlogin");    	
     	return http.getOrBuild();
     }
 	

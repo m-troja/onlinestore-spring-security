@@ -1,8 +1,8 @@
 <%@ taglib prefix="shop" tagdir="/WEB-INF/tags/shop"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <fmt:setLocale value="${locale}"/>
 <fmt:setBundle basename="OnlineShopResourceBundle" var="rb"/>
 
@@ -15,6 +15,7 @@
 	
 	<shop:css-imports-main/>
 	<shop:css-imports-signin/>
+	
 </head>
 <body>
 
@@ -42,6 +43,12 @@
 							<input class="input100 has-val" type="password" name="password">
 							<span class="focus-input100" data-placeholder="Password"></span>
 						</div>
+	
+								<!--  Remember Checkbox -->
+								
+						<input  id="remember_id" type="checkbox" name="remember">
+						  <label for="remember_id" >Remember Me</label>	
+	
 	
 						<div class="container-login100-form-btn">
 							<div class="wrap-login100-form-btn">

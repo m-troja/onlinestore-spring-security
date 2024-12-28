@@ -170,7 +170,7 @@ header .navbar-default .navbar-header {
 
 .web-sh.navbar-form input::-moz-placeholder {
 	/* Firefox 19+ */
-	color #474747;
+	color: #474747;
 	opacity: 1;
 }
 
@@ -271,7 +271,6 @@ header .navbar-default .navbar-header {
 
 .top-nav ul li a {
 	color: #fff;
-	font-family: ;
 	font-size: 14px;
 	font-weight: 400;
 }
@@ -1018,7 +1017,6 @@ header .navbar-default .navbar-header {
 .thi {
 	float: right;
 }
-
 .dit-btn {
 	padding-top: 10px;
 }
@@ -2172,13 +2170,21 @@ html .ui-button.ui-state-disabled:active {
 	margin-bottom: 20px;
 }
 
-[type="checkbox"]:not(:checked),
+[type="checkbox"]:not(:checked)
+{
+    height: 16px;
+    width: 16px;
+}
 [type="checkbox"]:checked {
+	/*
 	position: absolute;
 	left: -9999px;
 	opacity: 0;
+	*/
+    height: 16px;
+    width: 16px;
+	
 }
-
 [type="checkbox"].filled-in:checked.chk-col-blue+label:after {
 	border: 1px solid #dfdfdf;
 	background-color: transparent;

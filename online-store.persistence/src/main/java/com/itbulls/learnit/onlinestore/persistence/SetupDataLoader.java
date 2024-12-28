@@ -1,4 +1,5 @@
 package com.itbulls.learnit.onlinestore.persistence;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import javax.transaction.Transactional;
@@ -81,6 +82,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 			user.setEmail(email);
 			user.setRoles(Arrays.asList(role));
 			user.setIsEnabled(true);
+			user.setMoney(BigDecimal.ZERO);
 			userRepository.saveUser(user);
 		}
 	}

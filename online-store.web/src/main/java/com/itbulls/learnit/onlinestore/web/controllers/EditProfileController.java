@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,6 @@ import com.itbulls.learnit.onlinestore.core.services.impl.CorePasswordValidator;
 import com.itbulls.learnit.onlinestore.persistence.entities.Category;
 import com.itbulls.learnit.onlinestore.persistence.entities.User;
 import com.itbulls.learnit.onlinestore.web.Configurations;
-import com.itbulls.learnit.onlinestore.web.utils.PBKDF2WithHmacSHA1EncryptionService;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,7 +42,7 @@ public class EditProfileController  {
 	private Validator passValidator;
 
 	@Autowired
-	private PBKDF2WithHmacSHA1EncryptionService encryptionService;
+	private PasswordEncoder passwordEncoder;
 	
 	@GetMapping("/edit-profile")
 	public String doGet(HttpSession session)
@@ -69,7 +69,7 @@ public class EditProfileController  {
 		newUser.setEmail(email);
 				
 		//Validate current password
-		if ( !encryptionService.validatePassword(password, loggedInUser.getPassword()))
+		if ( !passwordEncoder.matches(password, loggedInUser.getPassword()))
 		{
 			session.setAttribute("errMsg", "Wrong password");
 			return "editProfile"; 
@@ -98,7 +98,7 @@ public class EditProfileController  {
 		}
 		
 		if (newPassword != null && !newPassword.isEmpty()) {
-			newUser.setPassword(encryptionService.generatePasswordWithSaltAndHash(newPassword));
+			newUser.setPassword(passwordEncoder.encode(newPassword));
 		}
 		
 		userFacade.updateUser(newUser);
